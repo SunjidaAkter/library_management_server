@@ -25,12 +25,14 @@ SECRET_KEY = 'django-insecure-ycwyt*qytfm2^0dmvk*=d(6k=v+s30w!3%-o^w&)!7gtmgw(5r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1",".vercel.app"]
 CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'library_management_server.wsgi.application'
+WSGI_APPLICATION = 'library_management_server.wsgi.app'
 
 
 # Database
@@ -84,8 +87,12 @@ WSGI_APPLICATION = 'library_management_server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER':'postgres.jipxnjbpykypvyyjszpx',
+        'PASSWORD': 'CzNn.5!-Ej-k.-*',
+        'HOST': 'aws-0-ap-southeast-1.pooler.supabase.com',
+        'PORT': '6543',
     }
 }
 
@@ -130,6 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
