@@ -13,7 +13,7 @@ urlpatterns = [
     path('user_account/', include('user_account.urls')),
     path('author/', include('author.urls')),
     path('book/', include('book.urls')),
-    # path('borrow/', include('borrow.urls')),
+    path('borrow/', include('borrow.urls')),
     # path('wishlist/', include('wishlist.urls')),
 ]
 

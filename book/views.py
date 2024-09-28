@@ -11,9 +11,9 @@ class BookViewset(viewsets.ModelViewSet):
     queryset = models.Book.objects.all()
     serializer_class = serializers.BookSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['name','genre__name']
+    filterset_fields = ['title','genre__name']
     # pagination_class = BookPagination
-    search_fields = [ 'name','genre__name']
+    search_fields = [ 'title','genre__name']
     
 class ReviewsForSpecificBook(filters.BaseFilterBackend):
     def filter_queryset(self, request, query_set, view):
@@ -25,3 +25,5 @@ class ReviewViewset(viewsets.ModelViewSet):
     queryset = models.Review.objects.all()
     serializer_class = serializers.ReviewSerializer
     filter_backends = [ReviewsForSpecificBook]
+
+    

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Return Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333333;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .email-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .email-header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .email-content {
+            padding: 20px;
+        }
+
+        .email-footer {
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h2>Book Return Confirmation</h2>
+        </div>
+
+        <div class="email-content">
+            <p>Dear {{ user_account.user.first_name }},</p>
+
+            <p>We are pleased to inform you that you have successfully returned the book "<strong>{{ borrow.book.title
+                    }}</strong>".</p>
+
+            <p>The book has been added back to our inventory, and your balance has been refunded with an amount of
+                <strong>{{ borrow.book.price }}</strong>.</p>
+
+            <p>Thank you for using our service. We hope to see you again soon!</p>
+
+            <p>If you have any questions, feel free to reply to this email or contact our support team.</p>
+
+            <p>Best regards,</p>
+            <p><strong>Bookit Library Team</strong></p>
+        </div>
+
+        <div class="email-footer">
+            <p>&copy; {{ current_year }} Bookit Library. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>
