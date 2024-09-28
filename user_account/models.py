@@ -9,7 +9,7 @@ ROLE = [
 
 class UserAccount(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
-    image = models.ImageField(upload_to='user_account/images/')
+    image_url = models.URLField(max_length=500, null=True, blank=True) 
     mobile_no = models.CharField(max_length = 12)
     address=models.CharField(max_length=100)
     amount=models.IntegerField(default=0)

@@ -11,12 +11,12 @@ class UserAccountSerializer(serializers.ModelSerializer):
 class RegistrationSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(required=True)
     mobile_no = serializers.CharField(required=False, allow_blank=True)
-    image = serializers.ImageField(required=False, allow_null=True)
+    image_url = serializers.URLField(required=False, allow_blank=True)
     address = serializers.CharField(required=False, allow_blank=True)
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password', 'confirm_password', 'mobile_no', 'image', 'address']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password', 'confirm_password', 'mobile_no', 'image_url', 'address']
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate(self, data):
@@ -43,7 +43,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         UserAccount.objects.create(
             user=user,
             mobile_no=validated_data.get('mobile_no', ''),
-            image=validated_data.get('image', None),
+            image_url=validated_data.get('image_url', ''),
             address=validated_data.get('address', '')
         )
         
