@@ -11,10 +11,11 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('user_account/', include('user_account.urls')),
+    path('genre/', include('genre.urls')),
     path('author/', include('author.urls')),
     path('book/', include('book.urls')),
     path('borrow/', include('borrow.urls')),
-    # path('wishlist/', include('wishlist.urls')),
+    path('wishlist/', include('wishlist.urls')),
 ]
 
 
