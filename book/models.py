@@ -18,6 +18,7 @@ class Book(models.Model):
     reviews_count = models.PositiveIntegerField(default=0)
     def __str__(self) -> str:
         return self.title
+    
     def update_rating(self):
         """Calculates and updates the average rating as an integer based on related reviews."""
         average_rating = self.review_set.aggregate(Avg('rating'))['rating__avg']
