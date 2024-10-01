@@ -2,6 +2,8 @@ from django.db import models
 from genre.models import Genre
 from author.models import Author
 from django.contrib.auth.models import User
+from django.db.models import Avg
+import math
 # Create your models here.
 class Book(models.Model):
     isbn = models.CharField(max_length=13, unique=True, blank=False, null=False)
@@ -12,8 +14,23 @@ class Book(models.Model):
     image=models.URLField(max_length=1000,blank=True,null=True)
     genre=models.ForeignKey(Genre,on_delete=models.CASCADE)
     author=models.ForeignKey(Author,on_delete=models.CASCADE)
+    rating = models.IntegerField(default=1)  # Default rating set to 1
+    reviews_count = models.PositiveIntegerField(default=0)
     def __str__(self) -> str:
         return self.title
+    def update_rating(self):
+        """Calculates and updates the average rating as an integer based on related reviews."""
+        average_rating = self.review_set.aggregate(Avg('rating'))['rating__avg']
+        if average_rating is not None:
+            self.rating = math.floor(average_rating )  # Round to the nearest integer
+        else:
+            self.rating = 1  # Default to 1 if no reviews
+        self.save()
+
+    def update_reviews_count(self):
+        """Updates the count of reviews."""
+        self.reviews_count = self.review_set.count()
+        self.save()
     
 class Review(models.Model):
     reviewer = models.ForeignKey(User, on_delete=models.CASCADE)
