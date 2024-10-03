@@ -15,7 +15,7 @@ class BorrowViewSet(viewsets.ModelViewSet):
     queryset = models.Borrow.objects.select_related('book').all()
     serializer_class = serializers.BorrowSerializer
     http_method_names = ['get', 'post', 'patch', 'delete']
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     def get_queryset(self):
         borrower_id = self.request.query_params.get('borrower_id')
 
