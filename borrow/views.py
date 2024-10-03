@@ -75,15 +75,15 @@ class BorrowViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         request = self.request
         book_id = request.data.get('book')
-
+        account_id = request.data.get('borrower')
     # Ensure book_id exists
         if not book_id:
             raise ValidationError({"error": "Book ID is required."})
 
         # Retrieve the book and user account
         book = get_object_or_404(Book, pk=book_id)
-        users = get_object_or_404(User, username=request.user.username)
-        user_account = get_object_or_404(UserAccount, user=users)
+        # users = get_object_or_404(User, username=request.user.username)
+        user_account = get_object_or_404(UserAccount, pk=account_id)
         # Check if the book is available in stock
         if book.quantity <= 0:
             raise ValidationError({"error": "This book is currently out of stock."})
