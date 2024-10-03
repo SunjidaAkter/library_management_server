@@ -50,7 +50,7 @@
         <div class="email-content">
             <p>Dear {{ user_account.user.first_name }},</p>
 
-            <p>Thank you for borrowing "<strong>{{ borrow.book.title }}</strong>". We are pleased to confirm that the
+            <p>Thank you for borrowing <strong>{{ borrow.book.title }}</strong>. We are pleased to confirm that the
                 book has been successfully borrowed.</p>
 
             <p>Your current balance after this transaction is <strong>{{ borrow.balance_after_borrow }}</strong>.</p>
@@ -58,21 +58,20 @@
             <p><strong>Book Details:</strong></p>
             <ul>
                 <li><strong>Title:</strong> {{ borrow.book.title }}</li>
-                <li><strong>Author:</strong> {{ borrow.book.author }}</li>
+                <!-- <li><strong>Author:</strong> {{ borrow.book.author }}</li> -->
                 <li><strong>Price:</strong> {{ borrow.book.price }}</li>
             </ul>
 
-            <p>You can now enjoy reading your borrowed book. The due date for return is <strong>{{ borrow.due_date
-                    }}</strong> (if applicable).</p>
+            <p>You can now enjoy reading your borrowed book. </p>
 
             <p>If you have any questions, feel free to reply to this email or contact our support team.</p>
 
             <p>Best regards,</p>
-            <p><strong>Your Library Team</strong></p>
+            <p><strong>Bookit Library Team</strong></p>
         </div>
 
         <div class="email-footer">
-            <p>&copy; {{ current_year }} Your Library. All rights reserved.</p>
+            <p>&copy; {{ current_year }} Bookit Library. All rights reserved.</p>
         </div>
     </div>
 </body>

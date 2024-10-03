@@ -50,11 +50,12 @@
         <div class="email-content">
             <p>Dear {{ user_account.user.first_name }},</p>
 
-            <p>We are pleased to inform you that you have successfully returned the book "<strong>{{ borrow.book.title
-                    }}</strong>".</p>
+            <p>We are pleased to inform you that you have successfully returned the book <strong>{{ borrow.book.title
+                    }}</strong>.</p>
 
             <p>The book has been added back to our inventory, and your balance has been refunded with an amount of
-                <strong>{{ borrow.book.price }}</strong>.</p>
+                <strong>{{ borrow.book.price }}</strong>.
+            </p>
 
             <p>Thank you for using our service. We hope to see you again soon!</p>
 
