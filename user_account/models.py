@@ -13,6 +13,6 @@ class UserAccount(models.Model):
     mobile_no = models.CharField(max_length = 12)
     address=models.CharField(max_length=100)
     amount=models.IntegerField(default=0)
-    role = models.CharField(choices = ROLE, max_length = 10, default = "Customer")
+    role = models.CharField(choices = ROLE, max_length = 10, default = "Reader")
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"
