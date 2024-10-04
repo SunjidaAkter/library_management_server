@@ -14,6 +14,7 @@ class BookViewset(viewsets.ModelViewSet):
     filterset_fields = ['title','genre__name']
     # pagination_class = BookPagination
     search_fields = [ 'title','genre__name']
+    http_method_names = ['get', 'post', 'patch', 'delete','put']
     
 class ReviewsForSpecificBook(filters.BaseFilterBackend):
     def filter_queryset(self, request, query_set, view):
