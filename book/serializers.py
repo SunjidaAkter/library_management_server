@@ -8,7 +8,7 @@ class BookSerializer(serializers.ModelSerializer):
     genre = serializers.PrimaryKeyRelatedField(queryset=models.Genre.objects.all())
     author = serializers.PrimaryKeyRelatedField(queryset=models.Author.objects.all())
     image=serializers.URLField(max_length=1000,required=False)
-    isbn=serializers.URLField(max_length=1000,required=False)
+    isbn=serializers.CharField(max_length=1000,required=False)
     class Meta:
         model = models.Book
         fields = '__all__'
