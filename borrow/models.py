@@ -9,8 +9,8 @@ BORROW_STATUS = [
 
 # Create your models here.
 class Borrow(models.Model):
-    borrower = models.ForeignKey(UserAccount, on_delete=models.DO_NOTHING, related_name='borrowers')
-    book = models.ForeignKey(Book, on_delete=models.DO_NOTHING, related_name='books')
+    borrower = models.ForeignKey(UserAccount, on_delete=models.CASCADE, related_name='borrowers')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='books')
     borrow_status = models.CharField(choices = BORROW_STATUS, max_length = 10, default = "Borrowed")
     balance_after_borrow=models.IntegerField(null=True, blank=True)
     balance_after_return=models.IntegerField(null=True, blank=True)
