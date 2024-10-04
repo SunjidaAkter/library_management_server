@@ -6,7 +6,7 @@ from django.db.models import Avg
 import math
 # Create your models here.
 class Book(models.Model):
-    isbn = models.CharField(max_length=13, unique=True, blank=False, null=False)
+    isbn = models.CharField(max_length=100, unique=True, blank=False, null=False)
     title=models.CharField(max_length=50)
     description=models.CharField(max_length=500)
     price=models.IntegerField()
