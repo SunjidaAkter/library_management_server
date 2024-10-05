@@ -58,7 +58,7 @@ def activate(request, uid64, token):
         user.save()
         return redirect('https://bookit-library.netlify.app/login')
     else:
-        return redirect('http://localhost:3000/register')
+        return redirect('http://bookit-library.netlify.app/register')
     
 
 class UserLoginApiView(APIView):
