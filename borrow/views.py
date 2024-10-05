@@ -32,7 +32,8 @@ class BorrowViewSet(viewsets.ModelViewSet):
     def send_return_email(self, user_account, borrow, subject, template):
         message = render_to_string(template, {
             'user_account': user_account,
-            'borrow': borrow,
+            'borrower': borrow.borrower,
+            'book': borrow.book
         })
         send_email = EmailMultiAlternatives(subject, '', to=[user_account.user.email])
         send_email.attach_alternative(message, "text/html")
@@ -65,7 +66,8 @@ class BorrowViewSet(viewsets.ModelViewSet):
     def send_borrow_email(self, user_account, borrow, subject, template):
         message = render_to_string(template, {
             'user_account': user_account,
-            'borrow': borrow,
+            'borrower': borrow.borrower,
+            'book': borrow.book
         })
         send_email = EmailMultiAlternatives(subject, '', to=[user_account.user.email])
         send_email.attach_alternative(message, "text/html")

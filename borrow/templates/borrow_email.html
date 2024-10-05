@@ -50,16 +50,16 @@
         <div class="email-content">
             <p>Dear {{ user_account.user.first_name }},</p>
 
-            <p>Thank you for borrowing <strong>{{ borrow.book.title }}</strong>. We are pleased to confirm that the
+            <p>Thank you for borrowing <strong>{{ book.title }}</strong>. We are pleased to confirm that the
                 book has been successfully borrowed.</p>
 
-            <p>Your current balance after this transaction is <strong>{{ borrow.balance_after_borrow }}</strong>.</p>
+            <p>Your current balance after this transaction is <strong>{{ user_account.amount }}</strong>.</p>
 
             <p><strong>Book Details:</strong></p>
             <ul>
-                <li><strong>Title:</strong> {{ borrow.book.title }}</li>
+                <li><strong>Title:</strong> {{ book.title }}</li>
                 <!-- <li><strong>Author:</strong> {{ borrow.book.author }}</li> -->
-                <li><strong>Price:</strong> {{ borrow.book.price }}</li>
+                <li><strong>Price:</strong> {{ book.price }}</li>
             </ul>
 
             <p>You can now enjoy reading your borrowed book. </p>
