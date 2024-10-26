@@ -22,6 +22,7 @@ Powered by **PostgreSQL** the backend offers robust data management and scalabil
 - **Reader Capabilities**:
   - Browse the book and view book details.
   - Place borrowing orders and track order status.
+  - Return borrowing books and track the record.
   - Access account details and order history.
 
 - **Additional Features**:
@@ -99,7 +100,7 @@ Powered by **PostgreSQL** the backend offers robust data management and scalabil
 
 - SECRET_KEY=(Your SECRET_KEY)
 
-       **to get the `SECRET_KEY`, Temporarily `Create a new project` named `library_management_server` anywhere `outside the current project directory` (may be in the `desktop`, `documents` or `downloads`, wherever you want, just outside the current project directory)**
+       to get the `SECRET_KEY`, Temporarily `Create a new project` named `library_management_server` anywhere `outside the current project directory` (may be in the `desktop`, `documents` or `downloads`, wherever you want, just outside the current project directory)
 
 - Copy the `secret key` from the temporarily created project's `temp_settings.py` file
 
