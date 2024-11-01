@@ -162,7 +162,7 @@ def transaction_success(request):
         else:
             arr_id = None
             # pay_id=None
-        
+        print("======================================================")
         if arr_id is None :
             return render(request, 'trans_fail.html')
 
