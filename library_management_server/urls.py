@@ -16,6 +16,7 @@ urlpatterns = [
     path('book/', include('book.urls')),
     path('borrow/', include('borrow.urls')),
     path('wishlist/', include('wishlist.urls')),
+    path('transaction/', include('transaction.urls')),
 ]
 
 

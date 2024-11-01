@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction Successful</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Payment Successful!</h1>
+        <p>Thank you, {{ user.user.first_name }}. Your payment has been successfully processed.</p>
+
+        <div class="transaction-details">
+            <h2>Transaction Details</h2>
+            <p><strong>Transaction ID:</strong> {{ trans.transaction_id }}</p>
+            <p><strong>Amount Paid:</strong> {{ trans.amount }}</p>
+            <p><strong>Status:</strong> {{ trans.payment_status }}</p>
+        </div>
+
+
+        <a href="https://bookit-library.netlify.app/" class="btn btn-secondary">Return to Homepage</a>
+    </div>
+</body>
+
+</html>

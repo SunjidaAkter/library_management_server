@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'borrow',
     'genre',
     'author',
+    'transaction'
 ]
 
 MIDDLEWARE = [
